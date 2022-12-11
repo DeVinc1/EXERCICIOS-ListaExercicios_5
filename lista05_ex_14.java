@@ -36,6 +36,16 @@ public class lista05_ex14 {
         int somaVertical1 = pos1_1 + pos2_1 + pos3_1;
         int somaVertical2 = pos1_2 + pos2_2 + pos3_2;
         int somaVertical3 = pos1_3 + pos2_3 + pos3_3;
+        //Diagonal
+        int somaDiagonal1 = pos1_1 + pos2_2 + pos3_3;
+        int somaDiagonal2 = pos1_3 + pos2_2 + pos3_1;
+
+        //Imprimindo quadrado
+        System.out.println(pos1_1 + " " + pos1_2 + " " + pos1_3);
+        System.out.println(pos2_1 + " " + pos2_2 + " " + pos2_3);
+        System.out.println(pos3_1 + " " + pos3_2 + " " + pos3_3);
+
+  
 
     }
 
@@ -53,7 +63,7 @@ public class lista05_ex14 {
     public static int escolherNum(ArrayList<Integer> Array_List) {
         Random rnd = new Random();
 
-        int indexNumEscolhido = rnd.nextInt(10);
+        int indexNumEscolhido = rnd.nextInt(Array_List.size());
         int numEscolhido = Array_List.get(indexNumEscolhido);
 
         Array_List.remove(indexNumEscolhido);
