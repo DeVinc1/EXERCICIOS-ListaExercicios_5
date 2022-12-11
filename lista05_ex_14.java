@@ -1,4 +1,3 @@
-
 /*
 Um quadrado mágico é aquele dividido em linhas e colunas, com um número em cada posição e no qual a soma das linhas, colunas e diagonais é a mesma. 
 Por exemplo, veja um quadrado mágico de lado 3, com números de 1 a 9:
@@ -13,39 +12,9 @@ import java.util.Random;
 
 public class lista05_ex14 {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         ArrayList<Integer> numerosDoQuadrado = criarArrayComNúmeros();
-
-        /* Criação do Quadrado */
-        int pos1_1 = escolherNum(numerosDoQuadrado);
-        int pos1_2 = escolherNum(numerosDoQuadrado);
-        int pos1_3 = escolherNum(numerosDoQuadrado);
-        int pos2_1 = escolherNum(numerosDoQuadrado);
-        int pos2_2 = escolherNum(numerosDoQuadrado);
-        int pos2_3 = escolherNum(numerosDoQuadrado);
-        int pos3_1 = escolherNum(numerosDoQuadrado);
-        int pos3_2 = escolherNum(numerosDoQuadrado);
-        int pos3_3 = escolherNum(numerosDoQuadrado);
-
-        /* Criando variaveis para verificar soma */
-        // Horizontal
-        int somaHorizontal1 = pos1_1 + pos1_2 + pos1_3;
-        int somaHorizontal2 = pos2_1 + pos2_2 + pos2_3;
-        int somaHorizontal3 = pos3_1 + pos3_2 + pos3_3;
-        // Vertical
-        int somaVertical1 = pos1_1 + pos2_1 + pos3_1;
-        int somaVertical2 = pos1_2 + pos2_2 + pos3_2;
-        int somaVertical3 = pos1_3 + pos2_3 + pos3_3;
-        //Diagonal
-        int somaDiagonal1 = pos1_1 + pos2_2 + pos3_3;
-        int somaDiagonal2 = pos1_3 + pos2_2 + pos3_1;
-
-        //Imprimindo quadrado
-        System.out.println(pos1_1 + " " + pos1_2 + " " + pos1_3);
-        System.out.println(pos2_1 + " " + pos2_2 + " " + pos2_3);
-        System.out.println(pos3_1 + " " + pos3_2 + " " + pos3_3);
-
-  
+        gerarQuadrados(numerosDoQuadrado);
 
     }
 
@@ -68,5 +37,75 @@ public class lista05_ex14 {
 
         Array_List.remove(indexNumEscolhido);
         return numEscolhido;
+    }
+
+    public static void gerarQuadrados(ArrayList<Integer> numerosDoQuadrado) throws InterruptedException {
+
+        /* Criação do Quadrado */
+        int pos1_1 = escolherNum(numerosDoQuadrado);
+        int pos1_2 = escolherNum(numerosDoQuadrado);
+        int pos1_3 = escolherNum(numerosDoQuadrado);
+        int pos2_1 = escolherNum(numerosDoQuadrado);
+        int pos2_2 = escolherNum(numerosDoQuadrado);
+        int pos2_3 = escolherNum(numerosDoQuadrado);
+        int pos3_1 = escolherNum(numerosDoQuadrado);
+        int pos3_2 = escolherNum(numerosDoQuadrado);
+        int pos3_3 = escolherNum(numerosDoQuadrado);
+
+        /* Criando variaveis para verificar soma */
+        // Horizontal
+        int somaHorizontal1 = pos1_1 + pos1_2 + pos1_3;
+        int somaHorizontal2 = pos2_1 + pos2_2 + pos2_3;
+        int somaHorizontal3 = pos3_1 + pos3_2 + pos3_3;
+        // Vertical
+        int somaVertical1 = pos1_1 + pos2_1 + pos3_1;
+        int somaVertical2 = pos1_2 + pos2_2 + pos3_2;
+        int somaVertical3 = pos1_3 + pos2_3 + pos3_3;
+        // Diagonal
+        int somaDiagonal1 = pos1_1 + pos2_2 + pos3_3;
+        int somaDiagonal2 = pos1_3 + pos2_2 + pos3_1;
+
+        // Imprimindo quadrado
+        System.out.println(pos1_1 + " " + pos1_2 + " " + pos1_3);
+        System.out.println(pos2_1 + " " + pos2_2 + " " + pos2_3);
+        System.out.println(pos3_1 + " " + pos3_2 + " " + pos3_3);
+
+        
+        /* Recriando o quadrado até encontrar os quadrado mágicos */
+        while (somaHorizontal1 != 15 || somaHorizontal2 != 15 || somaHorizontal3 != 15 ||
+                somaVertical1 != 15 || somaVertical2 != 15 || somaVertical3 != 15 ||
+                somaDiagonal1 != 15 || somaDiagonal2 != 15) {
+
+                    System.out.println("\n- Esse não é um quadrado mágico. \n");
+
+                    numerosDoQuadrado = criarArrayComNúmeros();
+                    pos1_1 = escolherNum(numerosDoQuadrado);
+                    pos1_2 = escolherNum(numerosDoQuadrado);
+                    pos1_3 = escolherNum(numerosDoQuadrado);
+                    pos2_1 = escolherNum(numerosDoQuadrado);
+                    pos2_2 = escolherNum(numerosDoQuadrado);
+                    pos2_3 = escolherNum(numerosDoQuadrado);
+                    pos3_1 = escolherNum(numerosDoQuadrado);
+                    pos3_2 = escolherNum(numerosDoQuadrado);
+                    pos3_3 = escolherNum(numerosDoQuadrado);
+
+                    System.out.println(pos1_1 + " " + pos1_2 + " " + pos1_3);
+                    System.out.println(pos2_1 + " " + pos2_2 + " " + pos2_3);
+                    System.out.println(pos3_1 + " " + pos3_2 + " " + pos3_3);
+
+                    // Horizontal
+                    somaHorizontal1 = pos1_1 + pos1_2 + pos1_3;
+                    somaHorizontal2 = pos2_1 + pos2_2 + pos2_3;
+                    somaHorizontal3 = pos3_1 + pos3_2 + pos3_3;
+                    // Vertical
+                    somaVertical1 = pos1_1 + pos2_1 + pos3_1;
+                    somaVertical2 = pos1_2 + pos2_2 + pos3_2;
+                    somaVertical3 = pos1_3 + pos2_3 + pos3_3;
+                    // Diagonal
+                    somaDiagonal1 = pos1_1 + pos2_2 + pos3_3;
+                    somaDiagonal2 = pos1_3 + pos2_2 + pos3_1;
+        }
+
+        System.out.println("\n - Esse é um QUADRADO MÁGICO");
     }
 }
