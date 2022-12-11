@@ -11,8 +11,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class lista05_ex14 {
-
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args){
         ArrayList<Integer> numerosDoQuadrado = criarArrayComNúmeros();
         gerarQuadrados(numerosDoQuadrado);
 
@@ -31,16 +30,15 @@ public class lista05_ex14 {
 
     public static int escolherNum(ArrayList<Integer> Array_List) {
         Random rnd = new Random();
-
+        /* Armazenando index encontrado aleatoriamente e encontrando número referente */
         int indexNumEscolhido = rnd.nextInt(Array_List.size());
         int numEscolhido = Array_List.get(indexNumEscolhido);
-
+        /* Retirando número encontrado */
         Array_List.remove(indexNumEscolhido);
         return numEscolhido;
     }
 
-    public static void gerarQuadrados(ArrayList<Integer> numerosDoQuadrado) throws InterruptedException {
-
+    public static void gerarQuadrados(ArrayList<Integer> numerosDoQuadrado){
         /* Criação do Quadrado */
         int pos1_1 = escolherNum(numerosDoQuadrado);
         int pos1_2 = escolherNum(numerosDoQuadrado);
@@ -65,18 +63,11 @@ public class lista05_ex14 {
         int somaDiagonal1 = pos1_1 + pos2_2 + pos3_3;
         int somaDiagonal2 = pos1_3 + pos2_2 + pos3_1;
 
-        // Imprimindo quadrado
-        System.out.println(pos1_1 + " " + pos1_2 + " " + pos1_3);
-        System.out.println(pos2_1 + " " + pos2_2 + " " + pos2_3);
-        System.out.println(pos3_1 + " " + pos3_2 + " " + pos3_3);
-
-        
+        int contadorQuadradosMágicos = 0;
+        ArrayList<String> quadradosMagicos = new ArrayList<String>();
         /* Recriando o quadrado até encontrar os quadrado mágicos */
-        while (somaHorizontal1 != 15 || somaHorizontal2 != 15 || somaHorizontal3 != 15 ||
-                somaVertical1 != 15 || somaVertical2 != 15 || somaVertical3 != 15 ||
-                somaDiagonal1 != 15 || somaDiagonal2 != 15) {
-
-                    System.out.println("\n- Esse não é um quadrado mágico. \n");
+        System.out.println("Encontrando quadrados mágicos... \n");
+        while (contadorQuadradosMágicos <= 8) {
 
                     numerosDoQuadrado = criarArrayComNúmeros();
                     pos1_1 = escolherNum(numerosDoQuadrado);
@@ -89,10 +80,6 @@ public class lista05_ex14 {
                     pos3_2 = escolherNum(numerosDoQuadrado);
                     pos3_3 = escolherNum(numerosDoQuadrado);
 
-                    System.out.println(pos1_1 + " " + pos1_2 + " " + pos1_3);
-                    System.out.println(pos2_1 + " " + pos2_2 + " " + pos2_3);
-                    System.out.println(pos3_1 + " " + pos3_2 + " " + pos3_3);
-
                     // Horizontal
                     somaHorizontal1 = pos1_1 + pos1_2 + pos1_3;
                     somaHorizontal2 = pos2_1 + pos2_2 + pos2_3;
@@ -104,8 +91,22 @@ public class lista05_ex14 {
                     // Diagonal
                     somaDiagonal1 = pos1_1 + pos2_2 + pos3_3;
                     somaDiagonal2 = pos1_3 + pos2_2 + pos3_1;
+
+                    // Adicionando os quadrados mágicos à uma lista para imprimi-los posteriormente
+                    if(somaHorizontal1 == 15 && somaHorizontal2 == 15 && somaHorizontal3 == 15 &&
+                    somaVertical1 == 15 && somaVertical2 == 15 && somaVertical3 == 15 &&
+                    somaDiagonal1 == 15 && somaDiagonal2 == 15){
+                        contadorQuadradosMágicos++;
+                        quadradosMagicos.add(pos1_1 + " " + pos1_2 + " " + pos1_3 + "\n" 
+                        + pos2_1 + " " + pos2_2 + " " + pos2_3 + "\n"
+                        + pos3_1 + " " + pos3_2 + " " + pos3_3 + "\n \n");
+                    }
         }
 
-        System.out.println("\n - Esse é um QUADRADO MÁGICO");
+        //Imprimindo cada quadrado separadamento por meio do seu index na ArrayList
+        for(int i = 0; i < quadradosMagicos.size(); i++){
+            System.out.println(quadradosMagicos.get(i));
+        }
+        System.out.println("- Esses são os QUADRADOS MÁGICOS 3x3");
     }
 }
