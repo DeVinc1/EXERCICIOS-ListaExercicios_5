@@ -5,4 +5,3 @@ Os enunciados dos exercícios estão comentados no cabeçalho de cada arquivo co
  - Fonte da Lista:
  - `https://wiki.python.org.br/ExerciciosFuncoes`
 
-🚨 **Nota mental: Realizar upload do exercício 14** 🚨
