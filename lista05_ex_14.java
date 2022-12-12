@@ -67,7 +67,7 @@ public class lista05_ex14 {
         ArrayList<String> quadradosMagicos = new ArrayList<String>();
         /* Recriando o quadrado até encontrar os quadrado mágicos */
         System.out.println("Encontrando quadrados mágicos... \n");
-        while (contadorQuadradosMágicos <= 8) {
+        while (contadorQuadradosMágicos < 10) {
 
                     numerosDoQuadrado = criarArrayComNúmeros();
                     pos1_1 = escolherNum(numerosDoQuadrado);
@@ -107,6 +107,6 @@ public class lista05_ex14 {
         for(int i = 0; i < quadradosMagicos.size(); i++){
             System.out.println(quadradosMagicos.get(i));
         }
-        System.out.println("- Esses são os QUADRADOS MÁGICOS 3x3");
+        System.out.println("- Esses são 10 QUADRADOS MÁGICOS 3x3");
     }
 }
