@@ -33,7 +33,7 @@ public class lista05_ex10 {
             System.out.println("Seu número jogado foi: " + valorDoDado + ". Esse é seu ponto.");
             
             int valorDoSegundoDado = 0;
-            int repetidor = 1;
+            int repetidor = 0;
 
                 //Rejogadas do dado para tirar o número novamente
                 while(valorDoSegundoDado != valorDoDado){
