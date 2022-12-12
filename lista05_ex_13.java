@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class lista05_ex13 {
     
-    public static void main(String[] args) {
+ public static void main(String[] args) {
         Scanner scn = new Scanner(System.in);
         
         System.out.print("Digite a largura do retângulo entre 1 a 20: ");
@@ -16,7 +16,13 @@ public class lista05_ex13 {
         System.out.print("Digite a altura do retângulo entre 1 a 20: ");
         int altura = scn.nextInt();
         scn.close();
-    
+
+        desenharRetangulo(altura, largura);
+    }
+
+
+    public static void desenharRetangulo(int altura, int largura) {
+        //Corrigindo valores
         if(largura < 0){
             largura = 1;
             System.out.println("O valor da largura foi corrigido para o minímo 1.");
@@ -35,11 +41,6 @@ public class lista05_ex13 {
             System.out.println("O valor da altura foi corrigido para o máximo 20.");
         }
 
-        desenharRetangulo(altura, largura);
-    }
-
-
-    public static void desenharRetangulo(int altura, int largura) {
         //Desenhar o topo do retãngulo
         String larguraRetangulo = "-";
         System.out.println(larguraRetangulo.repeat(largura));
