@@ -10,7 +10,7 @@ import java.util.Random;
 
 public class lista05_ex10 {
     
-    public static void main(String[] args) {
+        public static void main(String[] args) {
         jogarDado();
     }
 
@@ -38,7 +38,7 @@ public class lista05_ex10 {
                 //Rejogadas do dado para tirar o número novamente
                 while(valorDoSegundoDado != valorDoDado){
                     valorDoSegundoDado = rnd.nextInt(13 - 2) + 2;
-
+                        System.out.println("O valor do segundo dado foi:" + valorDoSegundoDado);
                         if(valorDoSegundoDado == 7){
                             System.out.println("Seu número jogado foi 7. Você perdeu após " + repetidor + " vezes.");
                             //Escapar do loop While
